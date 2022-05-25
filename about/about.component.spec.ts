@@ -75,9 +75,7 @@ describe('AboutComponent', () => {
       .triggerEventHandler('click', null);
 
     fixture.detectChanges();
-
     const value = debugElement.query(By.css('h1')).nativeElement.innerText;
-
     expect(value).toEqual('1');
   });
 
@@ -87,7 +85,6 @@ describe('AboutComponent', () => {
       .triggerEventHandler('click', null);
 
     fixture.detectChanges();
-
     const message = debugElement.query(By.css('p.message')).nativeElement.innerText;
 
     expect(fixture.componentInstance.value).toEqual(0);
@@ -101,7 +98,6 @@ describe('AboutComponent', () => {
       .triggerEventHandler('click', null);
       
     fixture.detectChanges();
-
     const message = debugElement.query(By.css('p.message')).nativeElement.innerText;
 
     expect(fixture.componentInstance.value).toEqual(15);
