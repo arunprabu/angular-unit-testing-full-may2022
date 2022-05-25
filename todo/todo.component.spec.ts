@@ -9,7 +9,7 @@ describe('TodoComponent', () => {
   let fixture: ComponentFixture<TodoComponent>;
   let todoService: any;
 
-  // dummy todoList items
+  // keeping dummy todoList items for mocking
   const todoData: any[] = [
     {
       userId: 1,
@@ -32,7 +32,7 @@ describe('TodoComponent', () => {
         {
           provide: TodoService,
           useValue: {
-            // pass dummy data to TodoService getTasks method
+            // mocking service data
             getTasks: () => of(todoData )
           }
         }

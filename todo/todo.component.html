@@ -1,1 +1,10 @@
-<p>todo works!</p>
+<div class="row todo-item">
+  <div class="col-md-12" *ngFor="let todo of todoList">
+    <div class="card">
+      <div class="card-body">
+        <h4>{{todo.title}}</h4>
+        <p>{{todo.completed? 'Completed': 'Not completed'}}</p>
+      </div>
+    </div>
+  </div>
+</div>

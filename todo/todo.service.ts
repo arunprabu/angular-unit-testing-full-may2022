@@ -11,7 +11,7 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<any[]> {
-    return this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos');
+    return this.http.get<any[]>('https://jsonplaceholder.typicode.com/todos?_limit=10');
   }
 
   addNewTask(todo: any): void {

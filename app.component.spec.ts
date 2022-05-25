@@ -13,9 +13,12 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { UsersComponent } from './users/users.component';
+import { TodoService } from './todo/todo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // Describing What Component I am testing
 describe('AppComponent', () => {
+  
   const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
@@ -29,7 +32,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterModule.forRoot(routes),
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule
       ],
       declarations: [
         AppComponent,
@@ -39,7 +43,6 @@ describe('AppComponent', () => {
         TodoComponent
       ],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
       ]
     }).compileComponents();
   });
