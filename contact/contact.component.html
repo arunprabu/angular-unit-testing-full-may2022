@@ -1,0 +1,24 @@
+<div>
+  {{ pageName }}
+</div>
+
+<form id="contact-form" [formGroup]="contactForm" 
+  (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" 
+        formControlName="name" aria-label="Name">
+    </label>
+    <label class="center-block">Email:
+      <input class="form-control" 
+      formControlName="email" aria-label="Email">
+    </label>
+    <label class="center-block">Query:
+      <input class="form-control" 
+        formControlName="query" aria-label="Query">
+    </label>
+  </div>
+  <button type="submit" 
+    class="btn btn-success">Save</button>
+    <!-- [disabled]="!contactForm.valid"  -->
+</form>
