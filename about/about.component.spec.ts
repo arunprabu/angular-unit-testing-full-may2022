@@ -40,15 +40,12 @@ describe('AboutComponent', () => {
     expect(component.city).toEqual('London');
   }));
 
-  // Approach #1
+  // Approach #2
   it(`has London as City 2 `, ((done) => {
-    console.log('### start test');
     fixture.detectChanges();
     // call a method which has async code
     component.ngOnInit();
     setTimeout(() => {
-      console.log('isStable', fixture.isStable());
-      console.log('### end test');
       expect(component.city).toEqual('London');
       done();
     }, 3001)
@@ -61,18 +58,21 @@ describe('AboutComponent', () => {
     expect(bgColor).toBe('yellow');
   });
 
-  it('should increment and decrement value', () => {
-    fixture.componentInstance.increment();
-    expect(fixture.componentInstance.value).toEqual(1);
+  // TODO: Try checking whether the element has 'redText' class 
 
-    fixture.componentInstance.decrement();
-    expect(fixture.componentInstance.value).toEqual(0);
+
+  it('should increment and decrement value', () => {
+    component.increment();
+    expect(component.value).toEqual(1);
+
+    component.decrement();
+    expect(component.value).toEqual(0);
   });
 
   it('should increment value in template', () => {
     debugElement
       .query(By.css('button.increment'))
-      .triggerEventHandler('click', null);
+      .triggerEventHandler('click', null); // triggering click event thru pgm 
 
     fixture.detectChanges();
     const value = debugElement.query(By.css('h1')).nativeElement.innerText;
@@ -87,7 +87,7 @@ describe('AboutComponent', () => {
     fixture.detectChanges();
     const message = debugElement.query(By.css('p.message')).nativeElement.innerText;
 
-    expect(fixture.componentInstance.value).toEqual(0);
+    expect(component.value).toEqual(0);
     expect(message).toContain('Minimum');
   });
 
@@ -100,7 +100,7 @@ describe('AboutComponent', () => {
     fixture.detectChanges();
     const message = debugElement.query(By.css('p.message')).nativeElement.innerText;
 
-    expect(fixture.componentInstance.value).toEqual(15);
+    expect(component.value).toEqual(15);
     expect(message).toContain('Maximum');
   });
 });
